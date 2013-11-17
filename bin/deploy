@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
+rm -fr output_dev
 bin/sculpin generate
-rsync -avz output_dev/ proem:www/sites/thorpesystems.com/public/
+rsync -av --delete output_dev/ proem:www/sites/thorpesystems.com/public
