@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
+bin/sculpin generate
 rsync -avz output_dev/ proem:www/sites/thorpesystems.com/public/
