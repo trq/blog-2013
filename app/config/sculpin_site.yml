@@ -1,3 +1,4 @@
+env: dev
 name: "thorpesystems.com"
 description: "Another developers blog"
 url: "http://localhost:8080"

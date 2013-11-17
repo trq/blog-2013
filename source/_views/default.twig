@@ -23,16 +23,19 @@
     <link media="only screen and (device-width: 768px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
     <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/modernizr-2.6.2.custom.min.js"></script>
     <script type="text/javascript" src="/js/highlight.pack.js"></script>
     <script type="text/javascript" src="/js/application.js"></script>
 </head>
 
 <body>
-    <section class="sidebar">
+  <section class="sidebar">
+        {% if site.env == "prod" %}
         <a href="/">
             <img src="{{ site.gravatar_url }}?s=150" height="75" width="75" class="avatar" />
         </a>
+        {% endif %}
 
         <section class="meta">
             <a href="https://github.com/{{ site.github }}" target="_blank"><img src="/images/github.png" /></a>

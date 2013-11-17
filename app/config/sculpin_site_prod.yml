@@ -1,6 +1,7 @@
 imports:
   - sculpin_site.yml
 
+env: prod
 url: "http://thorpesystems.com"
 analytics: "UA-21713077-6"
 disqus_shortname: thorpesystems
