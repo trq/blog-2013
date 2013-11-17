@@ -1,5 +1,6 @@
 name: "thorpesystems.com"
 description: "Another developers blog"
+url: "http://localhost:8080"
 twitter: tonyrq
 github: trq
 gravatar_url: https://1.gravatar.com/avatar/baf2401c60cebda2259c84ef825569f6

@@ -1,5 +1,6 @@
 imports:
   - sculpin_site.yml
 
+url: "http://thorpesystems.com"
 analytics: "UA-21713077-6"
-disqus: true
+disqus_shortname: thorpesystems
