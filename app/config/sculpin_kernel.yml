@@ -1,2 +1,2 @@
 sculpin_posts:
-    permalink: ":filename/"
+  permalink: "blog/:filename/"
