@@ -12,52 +12,50 @@ Triggering _events_ and having _listeners_ listen out for these events would add
 
 The basics of it is quite simple to implement, so here is a small working prototype:
 
-```
-<?php
-class Event
-{
-    private $name;
-    private $params;
+    <?php
+    class Event
+    {
+        private $name;
+        private $params;
 
-    public function __construct($name, $params = array()) {
-        $this->name = $name;
-        $this->params = $params;
-    }
+        public function __construct($name, $params = array()) {
+            $this->name = $name;
+            $this->params = $params;
+        }
 
-    public function getName() {
-        return $this->name;
-    }
+        public function getName() {
+            return $this->name;
+        }
 
-    public function getParams() {
-        return $this->params;
-    }
-}
-
-class EventManager
-{
-    private $events = array();
-
-    public function attach($name, $callback) {
-        $this->events[$name][] = $callback;
-    }
-
-    public function trigger($name, $params = array()) {
-        foreach ($this->events[$name] as $event => $callback) {
-            $e = new Event($name, $params);
-            $callback($e);
+        public function getParams() {
+            return $this->params;
         }
     }
-}
 
-$events = new EventManager;
+    class EventManager
+    {
+        private $events = array();
 
-$events->attach('do', function($e) {
-    echo $e->getName() . "\n";
-    print_r($e->getParams());
-});
+        public function attach($name, $callback) {
+            $this->events[$name][] = $callback;
+        }
 
-$events->trigger('do', array('a', 'b', 'c'));
-```
+        public function trigger($name, $params = array()) {
+            foreach ($this->events[$name] as $event => $callback) {
+                $e = new Event($name, $params);
+                $callback($e);
+            }
+        }
+    }
+
+    $events = new EventManager;
+
+    $events->attach('do', function($e) {
+        echo $e->getName() . "\n";
+        print_r($e->getParams());
+    });
+
+    $events->trigger('do', array('a', 'b', 'c'));
 
 Like I said, this is just a simple implementation. The first thing that we would want to do with this code would be to implement a static event manager of sorts which implemented a singleton. This would enable events to be triggered in a global manner. Having implemented that, we would likely also want to add the ability to namespace events somewhat so that listeners could concentrate on only listening to events triggered by specific objects or namespaces for example.
 
@@ -69,68 +67,66 @@ Anyway, it's just something I'm playing with. At this point in time, there is al
 
 Coming back to this post less than an hour later, and I have now implemented priorities and the ability for the Event to return data back to a callback within the trigger.
 
-```
-<?php
-class Event
-{
-    private $name;
-    private $params;
+    <?php
+    class Event
+    {
+        private $name;
+        private $params;
 
-    public function __construct($name, $params = array()) {
-        $this->name = $name;
-        $this->params = $params;
+        public function __construct($name, $params = array()) {
+            $this->name = $name;
+            $this->params = $params;
+        }
+
+        public function getName() {
+            return $this->name;
+        }
+
+        public function getParams() {
+            return $this->params;
+        }
     }
 
-    public function getName() {
-        return $this->name;
-    }
+    class EventManager
+    {
+        private $events;
 
-    public function getParams() {
-        return $this->params;
-    }
-}
+        public function __construct() {
+            $this->events = new SplPriorityQueue;
+        }
 
-class EventManager
-{
-    private $events;
+        public function attach($name, $callback, $priority = 0) {
+            $this->events->insert(array($name, $callback), $priority);
+        }
 
-    public function __construct() {
-        $this->events = new SplPriorityQueue;
-    }
-
-    public function attach($name, $callback, $priority = 0) {
-        $this->events->insert(array($name, $callback), $priority);
-    }
-
-    public function trigger($name, $params = array(), $callback = null) {
-        foreach ($this->events as $event) {
-            if ($event[0] = $name) {
-                $e = new Event($name, $params);
-                if ($r = $event[1]($e)) {
-                    if (is_callable($callback)) {
-                        $callback($r);
+        public function trigger($name, $params = array(), $callback = null) {
+            foreach ($this->events as $event) {
+                if ($event[0] = $name) {
+                    $e = new Event($name, $params);
+                    if ($r = $event[1]($e)) {
+                        if (is_callable($callback)) {
+                            $callback($r);
+                        }
                     }
                 }
             }
         }
     }
-}
 
-$events = new EventManager;
+    $events = new EventManager;
 
-$events->attach('do', function($e) {
-    echo "Registered first\n";
-    return "Hello";
-});
+    $events->attach('do', function($e) {
+        echo "Registered first\n";
+        return "Hello";
+    });
 
-$events->attach('do', function($e) {
-    echo "Registered second\n";
-}, 100);
+    $events->attach('do', function($e) {
+        echo "Registered second\n";
+    }, 100);
 
-$events->trigger('do', array('a', 'b', 'c'), function($r) {
-    echo "$r\n";
-});
-```
+    $events->trigger('do', array('a', 'b', 'c'), function($r) {
+        echo "$r\n";
+    });
 
 The idea of halting execution might need a bit more work. I don't want to kill the entire application, it would be best to actually just stop any more events from being propagated instead. I guess I'll leave that for another post,
 

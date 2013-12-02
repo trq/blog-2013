@@ -8,15 +8,11 @@ categories:
 
 The short array syntax means that you can define an array using:
 
-```
-$arr = ['foo' => 'bar'];
-```
+    $arr = ['foo' => 'bar'];
 
 Now, while this alone doesn't seem like a big deal. It does make passing arrays of arguments to a function or method look allot cleaner.
 
-```
-somefunction(['foo' => 'bar']);
-```
+    somefunction(['foo' => 'bar']);
 
 In turn, this basically gives us a decent syntax that we can use to pass named arguments to php functions.
 
@@ -26,71 +22,67 @@ Now, [mootools][mootools] has a cool little class Options that has a single meth
 
 Something like (taken directly from the manual [here][options]):
 
-```
-var Widget = new Class({
-    Implements: Options,
-    options: {
-        color: '#fff',
-        size: {
-            width: 100,
-            height: 100
+    var Widget = new Class({
+        Implements: Options,
+        options: {
+            color: '#fff',
+            size: {
+                width: 100,
+                height: 100
+            }
+        },
+        initialize: function(options){
+            this.setOptions(options);
         }
-    },
-    initialize: function(options){
-        this.setOptions(options);
-    }
-});
- 
-var myWidget = new Widget({
-    color: '#f00',
-    size: {
-        width: 200
-    }
-});
- 
-//myWidget.options is now: {color: #f00, size: {width: 200, height: 100}}
-```
+    });
+     
+    var myWidget = new Widget({
+        color: '#f00',
+        size: {
+            width: 200
+        }
+    });
+     
+    //myWidget.options is now: {color: #f00, size: {width: 200, height: 100}}
 
 We can implement something similar using [php][php]'s new [traits][traits] by doing the following:
 
-```
-<?php
-trait Options
-{
-    private function setOptions(array $default_options, array $options)
+    <?php
+    trait Options
     {
-        return array_replace_recursive($default_options, $options);
+        private function setOptions(array $default_options, array $options)
+        {
+            return array_replace_recursive($default_options, $options);
+        }
+
     }
 
-}
-
-class Foo
-{
-    use Options;
-
-    private $options = [
-        'foo' => 'bar',
-        'boo' => 'bob',
-    ];
-
-    public function __construct(array $options = array())
+    class Foo
     {
-        $this->options = $this->setOptions($this->options, $options);
+        use Options;
+
+        private $options = [
+            'foo' => 'bar',
+            'boo' => 'bob',
+        ];
+
+        public function __construct(array $options = array())
+        {
+            $this->options = $this->setOptions($this->options, $options);
+        }
+
+        public function debug()
+        {
+            print_r($this->options);
+        }
+
     }
 
-    public function debug()
-    {
-        print_r($this->options);
-    }
+    $foo = new Foo;
+    $foo->debug();
 
-}
-
-$foo = new Foo;
-$foo->debug();
-
-$foo = new Foo(['boo' => 'new']);
-$foo->debug();
-```
+    $foo = new Foo(['boo' => 'new']);
+    $foo->debug();
 
 This produces:
 
@@ -117,58 +109,56 @@ Because we are then trying to overwrite it within the Foo object itself.
 
 So, I'm going to tidy this up so that we don't need to define $this->options within the class at all:
 
-```
-trait Options
-{
-    private $options = array();
-
-    private function setDefaults($options)
+    trait Options
     {
-        $this->options = $options;
-    }
+        private $options = array();
 
-    private function setOptions(array $options)
-    {
-        $this->options = array_replace_recursive($this->options, $options);
-    }
+        private function setDefaults($options)
+        {
+            $this->options = $options;
+        }
 
-    private function getOption($key)
-    {
-        if (isset($this->options[$key])) {
-            return $this->options[$key];
+        private function setOptions(array $options)
+        {
+            $this->options = array_replace_recursive($this->options, $options);
+        }
+
+        private function getOption($key)
+        {
+            if (isset($this->options[$key])) {
+                return $this->options[$key];
+            }
+
         }
 
     }
 
-}
-
-class Foo
-{
-    use Options;
-
-    public function __construct(array $options = array())
+    class Foo
     {
-        $this->setDefaults([
-            'foo' => 'bar',
-            'boo' => 'bob',
-        ]);
+        use Options;
 
-        $this->setOptions($options);
+        public function __construct(array $options = array())
+        {
+            $this->setDefaults([
+                'foo' => 'bar',
+                'boo' => 'bob',
+            ]);
+
+            $this->setOptions($options);
+        }
+
+        public function debug()
+        {
+            echo $this->getOption('boo') . "\n";
+        }
+
     }
 
-    public function debug()
-    {
-        echo $this->getOption('boo') . "\n";
-    }
+    $foo = new Foo;
+    $foo->debug();
 
-}
-
-$foo = new Foo;
-$foo->debug();
-
-$foo = new Foo(['boo' => 'new']);
-$foo->debug();
-```
+    $foo = new Foo(['boo' => 'new']);
+    $foo->debug();
 
 This results in:
 

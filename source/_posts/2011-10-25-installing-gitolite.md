@@ -21,25 +21,19 @@ This means we can now also use the nice shortcut _remote_ to access the machine.
 
 We run [debian][Debian]on our dev servers so installation is simple.
 
-```
-$ sudo apt-get update && sudo apt-get install gitolite
-```
+    $ sudo apt-get update && sudo apt-get install gitolite
 
 Back on my local machine, I need to copy my public ssh key to the server. It's best to place this in the /tmp directory so that the gitolite user can access this easily. You'll also want to name the remote file the same as the user you are planning on accessing the server as.
 
-```
-$ scp ~/.ssh/trq.pub remote:/tmp/trq.pub</pre>
-```
+    $ scp ~/.ssh/trq.pub remote:/tmp/trq.pub</pre>
 
 
 [OpenSSH][openssh] back into the remote server and make sure the public key we just uploaded is readable.
 
 Now we need to su to the [gitolite][Gitolite] user and import our initial users key into the configuration:
 
-```
-$ sudo su gitolite
-$ gl-setup /tmp/trq.pub
-```
+    $ sudo su gitolite
+    $ gl-setup /tmp/trq.pub
 
 That's it, were up and running. Go back to your local machine to configure your repositories.
 
@@ -47,16 +41,14 @@ That's it, were up and running. Go back to your local machine to configure your 
 
 That's right! One of the great things about [gitolite][Gitolite] is the fact that it's configuration is controlled remotely via a [git][Git] repository. Check it out and take a look:
 
-```
-$ git clone gitolite@remote:gitolite-admin
-$ cd gitolite-admin
-$ tree
-.
-├── conf
-│   └── gitolite.conf
-└── keydir
-    ├── trq.pub
-```
+    $ git clone gitolite@remote:gitolite-admin
+    $ cd gitolite-admin
+    $ tree
+    .
+    ├── conf
+    │   └── gitolite.conf
+    └── keydir
+        ├── trq.pub
 
 The entire repo contains a configuration file in conf/gitolite.conf and my public ssh key (added by (gl-setup) in the _keydir_ directory. To add new users, simply place there key in the _keydir_ then edit the configuration file as needed.
 
@@ -64,22 +56,20 @@ I'm not going to go into to many of the nitty gritty details, but I'll describe 
 
 I basically wanted lead devs to have read/write access to the master branch, all other devs to have read only access and to allow all devs to be able to share branches by allowing them to push to a namespace on the remote server. A basic config looks like this:
 
-```
-$ cat conf/gitolite.conf
-@admins             = trq
-@leads              = trq
-@devs               = somedev someotherdev
+    $ cat conf/gitolite.conf
+    @admins             = trq
+    @leads              = trq
+    @devs               = somedev someotherdev
 
-@site-repos         = site forums
-@server-repos       = gitolite-admin configs
+    @site-repos         = site forums
+    @server-repos       = gitolite-admin configs
 
-repo                @server-repos
-    RW+             = @admins
+    repo                @server-repos
+        RW+             = @admins
 
-repo                @site-repos
-    RW+             = @leads
-    RW+             devs/USER/          = @devs @leads
-```
+    repo                @site-repos
+        RW+             = @leads
+        RW+             devs/USER/          = @devs @leads
 
 This setup allows all devs access to read the master branch of two repositories, _site_ and _forums_. They can also write to branches within these repositories starting with devs/username/somebranch. So basically they get there own namespace within devs/username, they can also read each others branches from these locations which makes for easy sharing.
 
