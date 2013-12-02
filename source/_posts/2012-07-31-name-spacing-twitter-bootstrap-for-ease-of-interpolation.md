@@ -16,25 +16,23 @@ Putting [Bootstrap][bs] into it's own namespace would allow us to easily pull in
 
 So, how do you namespace [Bootstrap][bs] easily? Simple. Open your [bootstrap.less][bsless] file and wrap all the @import calls within a .bootstrap {} block. eg;
 
-```
-.bootstrap {
+    .bootstrap {
 
-// CSS Reset
-@import "reset.less";
+    // CSS Reset
+    @import "reset.less";
 
-// Core variables and mixins
-@import "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "mixins.less";
+    // Core variables and mixins
+    @import "variables.less"; // Modify this for custom colors, font-sizes, etc
+    @import "mixins.less";
 
-// Grid system and page structure
-@import "scaffolding.less";
-@import "grid.less";
-@import "layouts.less";
+    // Grid system and page structure
+    @import "scaffolding.less";
+    @import "grid.less";
+    @import "layouts.less";
 
-// more less ...
+    // more less ...
 
-}
-```
+    }
 
 That's it. Now, you can use [Bootstrap][bs] by simply applying the _bootstrap_ class to the element surrounding the area you wish to use [Bootstrap][bs].
 
