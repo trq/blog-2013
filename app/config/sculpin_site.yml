@@ -1,7 +1,8 @@
 env: dev
 name: "thorpesystems.com"
 description: "Another developers blog"
-url: "http://localhost:8080"
+url: "http://localhost:7000"
 twitter: tonyrq
 github: trq
-gravatar_url: https://1.gravatar.com/avatar/baf2401c60cebda2259c84ef825569f6
+username: "Tony Quilkey"
+#gravatar_url: https://1.gravatar.com/avatar/baf2401c60cebda2259c84ef825569f6

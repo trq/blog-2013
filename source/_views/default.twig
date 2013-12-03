@@ -22,6 +22,7 @@
     <link media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
     <link media="only screen and (device-width: 768px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
     <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="/js/modernizr-2.6.2.custom.min.js"></script>
@@ -31,17 +32,19 @@
 
 <body>
   <section class="sidebar">
-        {% if site.env == "prod" %}
+        {% if site.gravatar_url and site.env == "prod"%}
         <a href="/">
             <img src="{{ site.gravatar_url }}?s=150" height="75" width="75" class="avatar" />
         </a>
         {% endif %}
 
         <section class="meta">
-            <a href="https://github.com/{{ site.github }}" target="_blank"><img src="/images/github.png" /></a>
-            <a href="https://twitter.com/{{ site.twitter }}" target="_blank"><img src="/images/twitter.png"></a>
-            <a href="/atom.xml"><img src="/images/rss.png" /></a>
+            <a href="{{ site.url }}">{{ site.name }}</a>
+            <a href="https://github.com/{{ site.github }}" target="_blank"><i class="fa fa-github fa-fw"></i></a>
+            <a href="https://twitter.com/{{ site.twitter }}" target="_blank"><i class="fa fa-twitter fa-fw"></i></a>
+            <a href="/atom.xml"><i class="fa fa-rss fa-fw"></i></a>
         </section>
+        <span>The blog of {{ site.username }}</span>
     </section>
 
     <!--<section class="content about">
@@ -51,6 +54,10 @@
     {% block content_wrapper %}
         {{ block('content') }}
     {% endblock %}
+
+    <!--<section class="copy">
+      <p>Copyright &copy; 2013 Tony R Quilkey</p>
+    </section>-->
 
     {% if site.analytics %}
     <script>
