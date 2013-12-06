@@ -8,7 +8,7 @@ At work we have a dozen or so apps that share and extend a common CSS base that 
 
 We have our own version of [bootstrap.less][bsless] which pulls in the bootstrap code, and also defines any stuff we have overridden. Most of the @import calls have been commented out, and this is how I had been managing what was being compiled by [Less][less].
 
-Before I left work this afternoon however, chatting with one of the other devs, we decided we wanted to start making use of the scaffolding [Bootstrap][bs] provides. To get this working (and looking good) we would need to pull in [Bootstrap][bs]'s [scaffolding][bsscaf], [grid][bsgrid], [layouts][bslayouts] and [bsreset][reset]. I knew this would break stuff. We needed a solution that would make this breakage containable.
+Before I left work this afternoon however, chatting with one of the other devs, we decided we wanted to start making use of the scaffolding [Bootstrap][bs] provides. To get this working (and looking good) we would need to pull in [Bootstrap][bs]'s [scaffolding][bsscaf], [grid][bsgrid], [layouts][bslayouts] and [reset][reset]. I knew this would break stuff. We needed a solution that would make this breakage containable.
 
 During development we have [Bootstrap][bs] compiled via [lessphp][leafo] on the fly. Looking at the [less][less] documentation we found something that looked promising, [namespaces][less-ns].
 

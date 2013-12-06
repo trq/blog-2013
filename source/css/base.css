@@ -5,7 +5,18 @@ body {
   -webkit-font-smoothing: antialiased; }
 
 a {
-  color: #F92672; }
+  color: #F92672;
+  text-decoration: none;
+}
+
+#homepage-intro {
+  width: 100%;
+  min-width: 1060px;
+  height: 440px;
+  text-align: center;
+  background-position: top center;
+  background-size: 100% auto;
+}
 
 .sidebar {
   position: fixed;
@@ -44,10 +55,9 @@ a {
     color: black; }
     .sidebar .meta a {
       margin-left: 0px;
-      font-size: 28px;
+      font-size: 36px;
       color: #F92672; }
     .sidebar .meta a:hover {
-      color: #990037;
       text-decoration: none; }
   .sidebar .sections {
     margin: 15px 0 0 0; }
@@ -58,7 +68,6 @@ a {
       font-size: 12px;
       display: block; }
       .sidebar .sections a:hover {
-        color: #990037;
         text-decoration: none; }
     .sidebar .sections ul {
       margin: 0;
@@ -187,7 +196,6 @@ a {
     .content .listing a {
       text-decoration: none; }
       .content .listing a:hover {
-        color: #990037;
         text-decoration: none; }
   .content .meta {
     margin: 30px 0;
@@ -229,5 +237,29 @@ a {
     /*float: right;*/
   }
 
-.content.about {margin-bottom:0px;border-bottom:2px solid #eee}
+.social {
+  font-size: 38px;
+  max-width: 650px;
+  margin: auto;
+  color: #A0A0A0;
+  font-family: "Yanone Kaffeesatz", Helvetica, sans-serif;
+  float: right;
+}
+
+.social {
+  margin-top: 20px;
+  font-size: 38px;
+  color: #A0A0A0;
+  float: right;
+}
+
+.social a {
+  color: #A0A0A0;
+}
+
+.social a:hover {
+  color: #F92672;
+}
+
+  .content.about {margin-bottom:0px;border-bottom:2px solid #eee}
 pre code{overflow:scroll}
