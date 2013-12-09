@@ -41,7 +41,7 @@ within my `/usr/local/etc/php/5.5/conf.d/ext-xdebug.ini` file. Note that `xdebug
 
 ### Basic Usage
 
-First, an example using the default config that ships with Vdebug. I'm using a stock standard Symfony2 app running in the dev environment to demonstrate. With `app/console --dev=env server:run` running in the backgorund, open `web/app_dev.php` within vim and hit <F5>. Now visit `http://localhost:8000` in your browser. Coming back to vim you should see something like:
+First, an example using the default config that ships with Vdebug. I'm using a stock standard Symfony2 app running in the dev environment to demonstrate. With `app/console --dev=env server:run` running in the backgorund, open `web/app_dev.php` within vim and hit `<F5>`. Now visit `http://localhost:8000` in your browser. Coming back to vim you should see something like:
 
 <a href="/images/2013-12-02-debugging-php-in-vim/initial_screen.png"><img src="/images/2013-12-02-debugging-php-in-vim/initial_screen.png" width="650" /></a>
 
