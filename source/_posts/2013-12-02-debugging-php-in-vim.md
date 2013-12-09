@@ -55,11 +55,11 @@ By default Vdebug will simply go to the first line of your program and halt. Thi
 
     g:vdebug_options["break_on_open"]=0
 
-Now we need to actually set a break point. Moving the cursor down to the `$response = $kernel->handle($request);` line of the `app_dev.php` I hit <F10> inserting a breakpoint. You should now see something like:
+Now we need to actually set a break point. Moving the cursor down to the `$response = $kernel->handle($request);` line of the `app_dev.php` I hit `<F10>` inserting a breakpoint. You should now see something like:
 
 <a href="/images/2013-12-02-debugging-php-in-vim/breakpoint.png"><img src="/images/2013-12-02-debugging-php-in-vim/breakpoint.png" width="650" /></a>
 
-Note the B> in the gutter next to the line you were on when you clicked <F10>? This lets you know where your breakpoints were added. Now, clicking <F5> (to start the debugger) and hitting `http://localhost:8000` again in your browser should execute your application up to that breakpoint:
+Note the B> in the gutter next to the line you were on when you clicked `<F10>`? This lets you know where your breakpoints were added. Now, clicking `<F5>` (to start the debugger) and hitting `http://localhost:8000` again in your browser should execute your application up to that breakpoint:
 
 <a href="/images/2013-12-02-debugging-php-in-vim/breakpoint_2.png"><img src="/images/2013-12-02-debugging-php-in-vim/breakpoint_2.png" width="650" /></a>
 
