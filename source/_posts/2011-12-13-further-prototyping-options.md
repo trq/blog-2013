@@ -4,9 +4,15 @@ title:  Further prototyping options
 categories:
     - blog
 ---
-Ok, it's getting pretty late here so this post wont be too detailed. I'm just further prototyping my Options trait and I think it's getting pretty close to being ready to implement into [Proem][proem].
+Ok, it's getting pretty late here so this post wont be too detailed. I'm just
+further prototyping my Options trait and I think it's getting pretty close to
+being ready to implement into [Proem][proem].
 
-You can see my original post [here][options]. There where a few things that bugged me about the original implementation. My main quibble was that it completely wiped out all the benefits provided by type hinting. Hence, I decided to try to implement something where I could actually validate the options as they come in.
+You can see my original post [here][options]. There where a few things that
+bugged me about the original implementation. My main quibble was that it
+completely wiped out all the benefits provided by type hinting. Hence, I
+decided to try to implement something where I could actually validate the
+options as they come in.
 
 This is what I have come up with. It should be pretty self explanatory.
 
@@ -123,17 +129,27 @@ This is what I have come up with. It should be pretty self explanatory.
     ]);
     var_dump($f);
 
-It's still a little rough, but it works and can be fine tuned as it is used. This prototype only validates required options, and that they are of a specific object type. An actual implementation would validate for arrays, integers, strings and most likely regex pattern matches.
+It's still a little rough, but it works and can be fine tuned as it is used.
+This prototype only validates required options, and that they are of a specific
+object type. An actual implementation would validate for arrays, integers,
+strings and most likely regex pattern matches.
 
-The entire validation process is currently really rough, but that will definitely and will definitely be refactored and extended. I'm also not overly happy with how the setOptions() method is designed within the Options trait, but again, that can and will be refactored.
+The entire validation process is currently really rough, but that will
+definitely and will definitely be refactored and extended. I'm also not overly
+happy with how the setOptions() method is designed within the Options trait,
+but again, that can and will be refactored.
 
-It's the Foo class where the actual usage syntax takes place. I think it's reasonably tidy for the amount of work that is being done.
+It's the Foo class where the actual usage syntax takes place. I think it's
+reasonably tidy for the amount of work that is being done.
 
-I'd be really keen to get some feedback on the concept so any comments are more than welcome.
+I'd be really keen to get some feedback on the concept so any comments are more
+than welcome.
 
 edit:
 
-Actually, thinking about this a bit more, I can do away with the extra dependency on some Option object _and_ tidy the end syntax up a little by using an array instead.
+Actually, thinking about this a bit more, I can do away with the extra
+dependency on some Option object _and_ tidy the end syntax up a little by using
+an array instead.
 
 The end result will end up looking something like:
 
