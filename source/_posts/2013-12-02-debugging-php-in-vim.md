@@ -45,7 +45,6 @@ Xdebug. I have:
     xdebug.remote_handler=dbgp
     xdebug.remote_host=localhost
     xdebug.remote_port=9000
-    xdebug.profiler_enable=1
 
 within my `/usr/local/etc/php/5.5/conf.d/ext-xdebug.ini` file. Note that
 `xdebug.profiler_enable=1` configures the profiler to remain on always. I use
