@@ -1,0 +1,71 @@
+==================================================================
+https://keybase.io/trq
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://thorpesystems.com
+  * I am trq (https://keybase.io/trq) on keybase.
+  * I have a public key with fingerprint 3AAF 3A5E D969 174C 8F0D  63D9 99E0 98C4 EE5D 02BF
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "3aaf3a5ed969174c8f0d63d999e098c4ee5d02bf",
+            "host": "keybase.io",
+            "key_id": "99E098C4EE5D02BF",
+            "uid": "476e489535e13b3f75fb51faab57d900",
+            "username": "trq"
+        },
+        "service": {
+            "hostname": "thorpesystems.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1396304014,
+    "expire_in": 157680000,
+    "prev": "e29c5b169e3c8823dc44b2d0eff33f3d283d0e4d33d359b64e5d91db7694769d",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.22 (Darwin)
+Comment: GPGTools - https://gpgtools.org
+
+owGbwMvMwMXoa85uXjxvbRDj6QMfkxiCLV/0Vysl5adUKllVK2Wngqm0zLz01KKC
+osy8EiUrJePExDTjRNPUFEszS0Nzk2SLNIMUM+MUS0vLVANLi2ST1FTTFAOjpDQl
+HaWM/GKQDqAxSYnFqXqZ+UAxICc+MwUoamnpClTvbOLqaupiYOTkBpQrBUuYmJul
+mlhYmhqbphoaJxmnmZumJZkapiUmJpmap1gaGIAUFqcW5SXmpgJVlxQVKtXqKAEF
+yjKTU0HOBdkKk8zILypILa4sLknNLdZLzs8F6i0oyi/JT87PAUpnlJQUWIF0l1QW
+gJSXpybFQw2KT8rMSwH6G6ihLLWoODM/T8nKEKgyuSQTZLKhsaWZsYGJgaGJjlJq
+RUFmUWp8JkiFqbmZhQEQgKxJLQMamWpkmWyaZGhmmWqcbGFhZJySbGKSZJRikJqW
+ZmycZpxiZGEM5JikGBunGJtaJpmZAEPP0jAlydzMEhgOlilKIK8V5uUrWRkDnZmY
+DjSyODM9L7GktChVqbaTSYaFgZGLgY2VCRRzDFycArD4dH4hwLCQ5aTx/53/YtrP
+GKcIOxza/urauua96/5XS52S87d+O+nPrgX3hCwl7+csmbNXmCmkUaZ5ysnL80K2
+Z9/TqfnR/vHjtFU7ldTuLu5z2n/lnL7HNvfJ6icnXJjzoW3jg5mswbrKxq8Wyq0t
+O7mcL6RA8dUTD3atmLVPvsxZfXfWsQ/i9z6vvLPuq3K++0f9zD5Jl40Ss/cdEvzX
+c2l/mNGfOfMenZa4cSRtS2vRtJDsrYdrBRh/ptcf/pYlO4XN6sGL/x2xEttEJz7b
+OXWd1OSJ01UUGVpOr7+w74pbmVpUv7dTU35BzXKFG1EsAdOSNpQ7MK2Kf73dquSL
+0Latc9i8mfc2qE+w+d1bdlznlbc+45oA96vNL6Zxq3BXPnF9Ennu2kKjmZnMlaI/
+t90QUbyy/eGXqlexkyJOrrZdxnHj/v7Hf1xDZxQ9kNg172S6dhJPQfekD3GhZ56+
+fXbWPKzq+LLGVqXe4xfUzz/5rDpnQlJA1plvM952OJ/rZHn4PWip+VvtOwd0dtqU
+isiUf1gzPT10AUPa6qMdC7gzxRdFPJJj2s9RYPL62dTgWe+6n9/zOjZ9977Fy2bG
+rbHslPHJO1pjHqHuaPdlhbHNQu3z1/4+dbtse/adH8dzhsTt7cH9Sf+FOxcd2Bqu
+/SV5Qv9zrsj9a2J1XznI7hV8LvwqVId/Xe253Z+nLJr160Hm4zOaJe81NGoKpzmL
+rqlWltkMAA==
+=mMFR
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/trq
+
+==================================================================
