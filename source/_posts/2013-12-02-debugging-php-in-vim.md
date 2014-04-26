@@ -19,7 +19,7 @@ Installation is a simple process following the standard work flow for
 installing a vim plug-in. I use [Vundle][vundle] to make this process simpler
 to manage. Simply add:
 
-    Bundle "gmarik/vundle"
+    Bundle "joonty/vdebug"
 
 to your ~/.vimrc file (or wherever you maintain your plug-ins), then execute:
 
