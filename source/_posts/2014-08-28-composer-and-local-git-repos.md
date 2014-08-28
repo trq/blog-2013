@@ -23,7 +23,7 @@ composer.json containing:
 
 
     {
-        "name": "trq/example",
+        "name": "trq/somerepo",
         "autoload": {
             "psr-4": {
                 "SomeRepo\\": ["src/"]
