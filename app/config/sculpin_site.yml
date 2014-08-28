@@ -1,7 +1,7 @@
 env: dev
 name: "thorpesystems.com"
 description: "Another developers blog"
-url: "http://localhost:7000"
+url: "http://localhost:8000"
 twitter: tonyrq
 github: trq
 username: "Tony Quilkey"
