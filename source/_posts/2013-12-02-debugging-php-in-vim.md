@@ -57,7 +57,7 @@ details.
 
 First, an example using the default config that ships with Vdebug. I'm using a
 stock standard Symfony2 app running in the dev environment to demonstrate. With
-`app/console --dev=env server:run` running in the backgorund, open
+`app/console --env=dev server:run` running in the backgorund, open
 `web/app_dev.php` within vim and hit `<F5>`. Now visit `http://localhost:8000` in
 your browser. Coming back to vim you should see something like:
 
