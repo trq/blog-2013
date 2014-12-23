@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <section id="homepage-intro" style="background-image: url({{ site.url }}/images/tonyrq.jpg); background-position: 50% 0px;">
+    <section{% if hide_header is not defined %} id="homepage-intro" style="background-image: url({{ site.url }}/images/tonyrq.jpg); background-position: 50% 0px;"{% endif %}>
         <section class="sidebar">
             <section class="meta">
                 <a href="{{ site.url }}">{{ site.name }}</a>

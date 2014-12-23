@@ -1,7 +1,9 @@
+{% set hide_header = true %}
+
 {% extends 'default.twig' %}
 
 {% block content_wrapper %}
-        <section class="content">
+        <section class="content"{% if hide_header %} style="margin-top: 0;"{% endif %}>
             <h1>
                 <a href="{{ page.url }}">{{ page.title }}</a>
             </h1>
