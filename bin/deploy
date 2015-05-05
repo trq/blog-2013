@@ -2,4 +2,5 @@
 
 rm -fr output_prod
 bin/sculpin --env=prod generate
-rsync -av --delete output_prod/ proem:www/sites/thorpesystems.com/public
+cd output_prod
+aws s3 sync . s3://thorpesystems.com
