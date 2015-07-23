@@ -147,7 +147,10 @@ a {
     margin: 2em 3em; }
   .content li {
     margin-bottom: 10px;
-    line-height: 1.4em; }
+    line-height: 1.2em;
+    color: #777;
+      font-family: "Yanone Kaffeesatz", Helvetica, sans-serif;
+  }
   .content blockquote {
     font-style: italic;
     font-size: 14px;
