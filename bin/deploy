@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-rm -fr output_prod
-bin/sculpin --env=prod generate
-cd output_prod
-aws s3 sync . s3://thorpesystems.com
