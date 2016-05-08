@@ -74,6 +74,11 @@ class AbstractDriverTestCase extends \PHPUnit_Framework_TestCase
 {
     protected $driver;
 
+    public function setUp()
+    {
+        $this->driver = static::getDriver();
+    }
+
     abstract public function getDriver() : Driver;
 
     public function testCanPushAndGetCount()
