@@ -78,8 +78,6 @@ class AbstractDriverTestCase extends \PHPUnit_Framework_TestCase
 
     public function testCanPushAndGetCount()
     {
-        $this->driver = new InMemory();
-
         $this->driver->push('message 1');
         $this->driver->push('message 2');
         $this->driver->push('message 3');
